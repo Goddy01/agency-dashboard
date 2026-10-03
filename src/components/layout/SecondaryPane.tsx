@@ -170,7 +170,7 @@ export function SecondaryPane() {
   return (
     <>
       {/* Desktop / large tablet fixed pane */}
-      <aside className="hidden w-[220px] shrink-0 flex-col overflow-y-auto border-r border-border bg-pane lg:flex">
+      <aside className="pane-glass hidden w-[220px] shrink-0 flex-col overflow-y-auto border-r border-border lg:flex">
         <PaneContent />
       </aside>
 
@@ -184,7 +184,7 @@ export function SecondaryPane() {
         />
       )}
       <aside
-        className={`fixed inset-y-0 left-0 z-50 flex w-[min(288px,86vw)] flex-col overflow-y-auto border-r border-border bg-pane shadow-2xl transition-transform duration-200 ease-out lg:hidden ${
+        className={`pane-glass fixed inset-y-0 left-0 z-50 flex w-[min(288px,86vw)] flex-col overflow-y-auto border-r border-border shadow-2xl transition-transform duration-200 ease-out lg:hidden ${
           paneOpen ? 'translate-x-0' : '-translate-x-full pointer-events-none'
         }`}
         aria-hidden={!paneOpen}

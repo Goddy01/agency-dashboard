@@ -28,7 +28,7 @@ type Stat = { label: string; value: string; hint?: string }
 
 export function StatStrip({ stats }: { stats: Stat[] }) {
   return (
-    <div className="mb-5 grid grid-cols-2 gap-3 lg:grid-cols-4">
+    <div className="stat-glass mb-5 grid grid-cols-2 gap-3 lg:grid-cols-4">
       {stats.map((s, i) => (
         <div
           key={s.label}

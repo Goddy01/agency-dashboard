@@ -116,7 +116,7 @@ export function Sidebar() {
 
   return (
     <>
-      <div className="fixed top-0 right-0 left-0 z-40 flex h-14 items-center gap-3 border-b border-border bg-canvas/90 px-4 backdrop-blur-md lg:hidden">
+      <div className="fixed top-0 right-0 left-0 z-40 flex h-14 items-center gap-3 border-b border-white/50 bg-white/55 px-4 shadow-[inset_0_1px_0_rgba(255,255,255,0.7)] backdrop-blur-xl lg:hidden">
         <button
           type="button"
           aria-label="Open menu"

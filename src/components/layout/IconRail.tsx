@@ -28,7 +28,7 @@ const icons: Record<NavIcon, LucideIcon> = {
 
 export function IconRail() {
   return (
-    <aside className="hidden w-[56px] shrink-0 flex-col items-center bg-rail py-3 md:flex">
+    <aside className="rail-glass hidden w-[56px] shrink-0 flex-col items-center py-3 md:flex">
       <div
         className="mb-4 flex size-8 items-center justify-center rounded-lg bg-accent text-xs font-bold text-white"
         title="Jacks"

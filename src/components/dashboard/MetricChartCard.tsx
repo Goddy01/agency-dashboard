@@ -162,7 +162,7 @@ export function MetricChartCard({
   }, [data])
 
   return (
-    <article className="flex min-w-0 flex-col rounded-2xl border border-border bg-surface p-3.5 shadow-[0_1px_2px_rgba(15,17,21,0.03)] sm:p-5">
+    <article className="glass-tint flex min-w-0 flex-col rounded-2xl border border-border bg-surface p-3.5 sm:p-5">
       <div className="mb-3 flex flex-col gap-3 sm:mb-4 sm:flex-row sm:items-start sm:justify-between">
         <div className="min-w-0">
           <p className="text-[11px] font-semibold uppercase tracking-[0.08em] text-fg-subtle">
