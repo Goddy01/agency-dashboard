@@ -81,13 +81,13 @@ export function AppShell({ children }: { children?: ReactNode }) {
 
   return (
     <ShellContext.Provider value={value}>
-      <div className="flex h-[100dvh] min-h-0 flex-col bg-canvas md:flex-row">
+      <div className="page-ground flex h-[100dvh] min-h-0 flex-col md:flex-row">
         <IconRail />
         <SecondaryPane />
 
         <div className="flex min-h-0 min-w-0 flex-1 flex-col">
           <MobileTopBar />
-          <main className="min-h-0 flex-1 overflow-x-hidden overflow-y-auto bg-surface pb-[calc(4.25rem+env(safe-area-inset-bottom))] md:pb-0">
+          <main className="min-h-0 flex-1 overflow-x-hidden overflow-y-auto bg-transparent pb-[calc(4.25rem+env(safe-area-inset-bottom))] md:pb-0">
             <div className="mx-auto w-full max-w-[1600px] px-3 py-3 sm:px-4 sm:py-4 lg:px-5 lg:py-5">
               {children ?? <Outlet />}
             </div>

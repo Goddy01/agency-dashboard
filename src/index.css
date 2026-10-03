@@ -28,13 +28,13 @@
 }
 
 :root {
-  --canvas: #f3f4f6;
+  --canvas: #f6f3ee;
   --surface: #ffffff;
-  --surface-2: #f0f1f3;
-  --rail: #15171c;
-  --pane: #eceef1;
-  --border: #e2e4e8;
-  --border-strong: #cfd3da;
+  --surface-2: #f4f1ec;
+  --rail: #151311;
+  --pane: #f6f3ee;
+  --border: #e6e1d9;
+  --border-strong: #d6cfc4;
   --fg: #12141a;
   --fg-muted: #5b616c;
   --fg-subtle: #8b919c;
@@ -51,13 +51,13 @@
 }
 
 .dark {
-  --canvas: #0e1014;
-  --surface: #171a20;
-  --surface-2: #1c2028;
-  --rail: #0a0b0e;
-  --pane: #12151a;
-  --border: #2a2f38;
-  --border-strong: #3a4150;
+  --canvas: #0d0c0b;
+  --surface: #161513;
+  --surface-2: #1e1c19;
+  --rail: #0a0908;
+  --pane: #121110;
+  --border: #2a2724;
+  --border-strong: #3a3631;
   --fg: #f3f4f6;
   --fg-muted: #9aa3b2;
   --fg-subtle: #6b7382;
@@ -114,5 +114,144 @@ select {
   ::-webkit-scrollbar {
     width: 3px;
     height: 3px;
+  }
+}
+
+/* Frosted panels over a soft color wash, in the spirit of orgboard's jobs board. */
+.page-ground {
+  isolation: isolate;
+  background-color: var(--canvas);
+  background-image:
+    radial-gradient(62% 58% at 0% 0%, color-mix(in srgb, var(--accent) 22%, transparent), transparent 72%),
+    radial-gradient(58% 55% at 100% 100%, color-mix(in srgb, #8a6fd1 18%, transparent), transparent 72%),
+    radial-gradient(44% 42% at 100% 0%, color-mix(in srgb, #3b7bc8 14%, transparent), transparent 72%),
+    radial-gradient(42% 40% at 8% 100%, color-mix(in srgb, #1f9a9a 14%, transparent), transparent 72%);
+  background-attachment: fixed;
+}
+
+.page-ground::before {
+  content: '';
+  position: fixed;
+  inset: -8vh;
+  z-index: -1;
+  pointer-events: none;
+  background:
+    radial-gradient(440px 320px at 24% 16%, color-mix(in srgb, var(--accent) 62%, transparent), transparent 70%),
+    radial-gradient(480px 340px at 82% 14%, color-mix(in srgb, #3b7bc8 55%, transparent), transparent 70%),
+    radial-gradient(520px 380px at 36% 78%, color-mix(in srgb, #8a6fd1 52%, transparent), transparent 70%),
+    radial-gradient(420px 300px at 86% 74%, color-mix(in srgb, #1f9a9a 48%, transparent), transparent 70%);
+  filter: blur(36px);
+}
+
+.dark .page-ground {
+  background-image:
+    radial-gradient(62% 58% at 0% 0%, color-mix(in srgb, var(--accent) 28%, transparent), transparent 72%),
+    radial-gradient(58% 55% at 100% 100%, color-mix(in srgb, #8a6fd1 24%, transparent), transparent 72%),
+    radial-gradient(44% 42% at 100% 0%, color-mix(in srgb, #3b7bc8 16%, transparent), transparent 72%),
+    radial-gradient(42% 40% at 8% 100%, color-mix(in srgb, #1f9a9a 16%, transparent), transparent 72%);
+}
+
+.pane-glass {
+  background-color: color-mix(in srgb, var(--pane) 58%, transparent);
+  -webkit-backdrop-filter: blur(18px) saturate(150%);
+  backdrop-filter: blur(18px) saturate(150%);
+  border-color: color-mix(in srgb, #fff 42%, var(--border));
+}
+
+.dark .pane-glass {
+  background-color: color-mix(in srgb, var(--pane) 72%, transparent);
+  border-color: color-mix(in srgb, #fff 10%, var(--border));
+}
+
+.rail-glass {
+  background-color: color-mix(in srgb, var(--rail) 78%, transparent);
+  -webkit-backdrop-filter: blur(16px) saturate(140%);
+  backdrop-filter: blur(16px) saturate(140%);
+  box-shadow: inset -1px 0 0 color-mix(in srgb, #fff 12%, transparent);
+}
+
+.page-ground main :is(article, div, li, section):is(.rounded-xl, .rounded-2xl).border,
+.page-ground main :is(article, li, div).rounded-lg.border {
+  background-color: color-mix(in srgb, var(--surface) 74%, transparent);
+  background-image:
+    linear-gradient(180deg, color-mix(in srgb, #fff 28%, transparent), transparent 42%);
+  -webkit-backdrop-filter: blur(16px) saturate(150%);
+  backdrop-filter: blur(16px) saturate(150%);
+  border-color: color-mix(in srgb, #fff 58%, var(--border));
+  box-shadow:
+    inset 0 1px 0 color-mix(in srgb, #fff 72%, transparent),
+    0 10px 28px rgba(26, 24, 22, 0.06);
+}
+
+.dark .page-ground main :is(article, div, li, section):is(.rounded-xl, .rounded-2xl).border,
+.dark .page-ground main :is(article, li, div).rounded-lg.border {
+  background-color: color-mix(in srgb, var(--surface) 78%, transparent);
+  background-image:
+    linear-gradient(180deg, color-mix(in srgb, #fff 8%, transparent), transparent 46%);
+  border-color: color-mix(in srgb, #fff 14%, var(--border));
+  box-shadow:
+    inset 0 1px 0 color-mix(in srgb, #fff 14%, transparent),
+    0 12px 32px rgba(0, 0, 0, 0.35);
+}
+
+.page-ground main .stat-glass > :is(.rounded-xl, .rounded-2xl).border,
+.page-ground main article.glass-tint.rounded-2xl.border {
+  background-color: color-mix(in srgb, var(--surface) 62%, transparent);
+  background-image:
+    radial-gradient(90% 120% at 0% 0%, color-mix(in srgb, var(--g, var(--accent)) 26%, transparent), transparent 62%),
+    radial-gradient(80% 120% at 100% 100%, color-mix(in srgb, var(--g2, #8a6fd1) 20%, transparent), transparent 62%);
+  border-color: color-mix(in srgb, var(--g, var(--accent)) 32%, var(--border));
+}
+
+.page-ground main .grid > article.glass-tint:nth-child(2) {
+  --g: #8a6fd1;
+  --g2: #3b7bc8;
+}
+
+.page-ground main .stat-glass > :nth-child(4n + 1) {
+  --g: var(--accent);
+  --g2: #cf5f8f;
+}
+.page-ground main .stat-glass > :nth-child(4n + 2) {
+  --g: #3b7bc8;
+  --g2: #8a6fd1;
+}
+.page-ground main .stat-glass > :nth-child(4n + 3) {
+  --g: #1f9a9a;
+  --g2: #2fa86b;
+}
+.page-ground main .stat-glass > :nth-child(4n + 4) {
+  --g: #8a6fd1;
+  --g2: var(--accent);
+}
+
+.dark .page-ground main .stat-glass > :is(.rounded-xl, .rounded-2xl).border,
+.dark .page-ground main article.glass-tint.rounded-2xl.border {
+  background-color: color-mix(in srgb, var(--surface) 70%, transparent);
+}
+
+.page-ground main :is(.rounded-xl, .rounded-2xl).border :is(div, li).rounded-lg.border {
+  -webkit-backdrop-filter: none;
+  backdrop-filter: none;
+  background-color: color-mix(in srgb, var(--surface) 55%, transparent);
+  background-image: none;
+  box-shadow: inset 0 1px 0 color-mix(in srgb, #fff 45%, transparent);
+}
+
+@media (prefers-reduced-transparency: reduce) {
+  .page-ground::before {
+    display: none;
+  }
+
+  .pane-glass,
+  .rail-glass,
+  .page-ground main :is(article, div, li, section):is(.rounded-xl, .rounded-2xl).border,
+  .page-ground main :is(article, li, div).rounded-lg.border,
+  .page-ground main .stat-glass > :is(.rounded-xl, .rounded-2xl).border,
+  .page-ground main article.glass-tint.rounded-2xl.border {
+    -webkit-backdrop-filter: none;
+    backdrop-filter: none;
+    background-color: var(--surface);
+    background-image: none;
   }
 }

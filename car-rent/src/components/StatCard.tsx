@@ -27,7 +27,7 @@ export function StatCard({
 
   return (
     <article
-      className="h-full rounded-2xl bg-surface p-4 shadow-[0_1px_2px_rgba(0,0,0,0.04)] ring-1 ring-border sm:p-5 animate-fade-up"
+      className="glass-tint h-full rounded-2xl bg-surface p-4 ring-1 ring-border sm:p-5 animate-fade-up"
       style={{ animationDelay: `${delay}ms` }}
     >
       <div className="flex items-start justify-between gap-3">
